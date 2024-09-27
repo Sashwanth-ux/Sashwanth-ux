@@ -7,7 +7,7 @@ import pandas as pd
 df = pd.read_csv(r'C:\Users\\D E L L\\Downloads\\Spotify Most Streamed Songs.csv')
 df.head()
 
-# data cleaing (checking)
+# data cleaing
 
 # check for any null values
 
@@ -22,10 +22,4 @@ print(f'Duplicates: {duplicates}')
 
 print(df)
 
-# data cleaning
 
-df = df.dropna(subset=['key', 'in_shazam_charts'])
-
-df['in_shazam_charts'] = df['in_shazam_charts'].fillna(0)  # Replace NaN with 0
-df['key'] = df['key'].fillna('Unknown')  # Replace NaN with 'Unknown'
-df['streams'] = pd.to_numeric(df['streams'], errors='coerce')  # Converts to numeric, NaNs for errors
